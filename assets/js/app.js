@@ -292,7 +292,7 @@ function renderGallery() {
   const items = store.gallery.gallery || [];
   const slides = items.map((g, i) => `
     <figure class="booth-slide ${i === 0 ? 'active' : ''}" data-i="${i}">
-      <img src="${escapeHtml(g.image)}" alt="${escapeHtml(g.caption)}" />
+      <img src="${escapeHtml(g.image)}" alt="${escapeHtml(g.caption)}" style="object-fit:${g.fit === 'contain' ? 'contain' : 'cover'}" />
       <figcaption class="booth-cap">${escapeHtml(g.caption)}</figcaption>
     </figure>`).join('');
   const dots = items.map((g, i) => `<button class="booth-dot ${i === 0 ? 'active' : ''}" data-i="${i}" aria-label="Show photo ${i + 1}"></button>`).join('');
