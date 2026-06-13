@@ -1,6 +1,6 @@
 {
   "gallery": [
-    { "id": "g1", "image": "assets/img/gallery/photo-1.jpg", "caption": "Fellows in a working session at the Emory Nursing Learning Center", "cohort": 2026, "event": "Short course" },
+    { "id": "g1", "image": "assets/img/gallery/photo-1.jpg", "caption": "Faculty in a working session at the Emory Nursing Learning Center", "cohort": 2026, "event": "Short course" },
     { "id": "g2", "image": "assets/img/gallery/photo-2.jpg", "caption": "Fellows at the fellowship reception dinner", "cohort": 2026, "event": "Reception" },
     { "id": "g3", "image": "assets/img/gallery/photo-3.jpg", "caption": "Fellows on the steps of the Emory ENLC atrium", "cohort": 2026, "event": "Cohort gathering" },
     { "id": "g4", "image": "assets/img/gallery/photo-4.jpg", "caption": "The SDOH ART cohort and faculty at Emory NHWSN", "cohort": 2026, "event": "Cohort photo" },
@@ -8,9 +8,9 @@
     { "id": "g6", "image": "assets/img/gallery/photo-6.jpg", "caption": "Breakout discussion during the five-day short course", "cohort": 2026, "event": "Short course" },
     { "id": "g7", "image": "assets/img/gallery/photo-7.jpg", "caption": "Faculty and fellows on the ENLC steps", "cohort": 2026, "event": "Cohort gathering" },
     { "id": "g8", "image": "assets/img/gallery/photo-8.jpg", "caption": "Fellows at the reception dinner", "cohort": 2026, "event": "Reception" },
-    { "id": "g9", "image": "assets/img/gallery/photo-9.jpg", "caption": "An interactive exercise during the five-day short course", "cohort": 2026, "event": "Short course" },
+    { "id": "g9", "image": "assets/img/gallery/photo-9.jpg", "caption": "Dr. Jill Hamilton recognizes the contributions of the program coordinators", "cohort": 2026, "event": "Short course" },
     { "id": "g10", "image": "assets/img/gallery/photo-10.jpg", "caption": "Faculty panel discussion during the short course", "cohort": 2026, "event": "Short course" },
-    { "id": "g11", "image": "assets/img/gallery/photo-11.jpg", "caption": "A fellow presents her research during the short course", "cohort": 2026, "event": "Short course" },
+    { "id": "g11", "image": "assets/img/gallery/photo-11.jpg", "caption": "Dr. Jane Chung delivers a lecture during the short course", "cohort": 2026, "event": "Short course" },
     { "id": "g12", "image": "assets/img/gallery/photo-12.jpg", "caption": "A working session, with the SDOH framework on screen", "cohort": 2026, "event": "Short course" },
     { "id": "g13", "image": "assets/img/gallery/photo-13.jpg", "caption": "Panel discussion with faculty during the short course", "cohort": 2026, "event": "Short course" },
     { "id": "g14", "image": "assets/img/gallery/photo-14.jpg", "caption": "Fellows with program director Dr. Jill Hamilton", "cohort": 2026, "event": "Reception" }
