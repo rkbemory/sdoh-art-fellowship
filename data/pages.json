@@ -1,0 +1,77 @@
+{
+  "about": {
+    "headline": "Advanced Research Training in Social Determinants of Health",
+    "lead": "A mentored fellowship at Emory's Nell Hodgson Woodruff School of Nursing preparing the next generation of nurse scientists to confront the social drivers of health.",
+    "body": "The SDOH ART Fellowship is a national training program hosted by Emory University's Nell Hodgson Woodruff School of Nursing. Funded by the National Institute of Nursing Research (NIH/NINR), it equips nurse scientists and interdisciplinary researchers with the methods, mentorship, and frameworks to understand — and act on — how social, environmental, cultural, and policy conditions shape health across diverse populations.\n\n## Who it's for\n\nThe fellowship supports scholars at two stages. **Early-career fellows** receive mentored training to grow into independent investigators with advanced SDOH research skills. **Mid-career fellows** integrate an SDOH lens into an established program of research, positioning them as leaders in the field.\n\n## The cohorts\n\nFunded as a three-year initiative, the fellowship has welcomed two cohorts to date — 2025 and 2026 — with a third to follow in 2027. Every fellow is matched with a dedicated Emory faculty mentor aligned to their research focus, and led by core faculty member Dr. Jill Hamilton.",
+    "benefits": [
+      { "title": "Dedicated faculty mentorship", "text": "An NIH-funded Emory mentor matched to your research focus, guiding you throughout the program year." },
+      { "title": "Intensive five-day short course", "text": "An in-person short course in SDOH research methods at Emory's Schools of Nursing and Public Health." },
+      { "title": "Methods and data science", "text": "Hands-on training in quantitative, qualitative, and mixed methods, with access to Emory's Center for Data Science." },
+      { "title": "$750 travel award", "text": "Funding to present and disseminate your SDOH research at a national conference." },
+      { "title": "National peer network", "text": "Join a national, interdisciplinary cohort of nurse scientists advancing health equity." },
+      { "title": "Certificate and pathway", "text": "Earn a certificate of completion and a clear pathway toward independent, SDOH-focused research." }
+    ],
+    "course": {
+      "intro": "At the center of the fellowship is an intensive five-day, in-person short course held at Emory each June, paired with year-long mentorship.",
+      "days": [
+        { "day": "Day 1", "title": "Frameworks and intersectionality", "focus": "SDOH overview, conceptual models, and building your own research framework; developing your problem statement." },
+        { "day": "Day 2", "title": "Community-engaged research", "focus": "Ethics, cultural respect, recruitment, and trust-building through interactive case studies and role-play." },
+        { "day": "Day 3", "title": "Research design and methods", "focus": "Quantitative, qualitative, and mixed-methods designs for SDOH, with a focus on rigor and matching questions to methods." },
+        { "day": "Day 4", "title": "Pitching and innovation", "focus": "A \"Shark Tank\" of two-minute research pitches and a panel on AI and the social determinants of health." },
+        { "day": "Day 5", "title": "Surviving academia and dissemination", "focus": "Funding pathways (F-to-K), building research teams, dissemination planning, and one-on-one mentoring." }
+      ]
+    },
+    "eligibility": [
+      "Early- and mid-career nurse scientists and interdisciplinary researchers.",
+      "Doctoral (PhD) students, postdoctoral fellows, and early- to mid-career faculty.",
+      "Research focused on — or pivoting toward — the social determinants of health.",
+      "Reference letters are required; applications without them are considered incomplete.",
+      "Final eligibility details are confirmed with each cohort announcement."
+    ],
+    "contact": {
+      "director": "Dr. Jill Hamilton, Program Director",
+      "email": "nursingquestions@emory.edu",
+      "note": "For questions about eligibility, mentorship, or upcoming application cycles, reach out to the program team or send an inquiry."
+    }
+  },
+  "framework": {
+    "headline": "The NHWSN Social Determinants of Health Framework",
+    "intro": "The Nell Hodgson Woodruff School of Nursing organizes the social determinants of health into four interconnected domains. Like pieces of a single puzzle, the domains overlap and reinforce one another to shape health outcomes. The framework gives fellows a shared language for naming the non-biological forces behind the disparities they study — and where intervention is possible.",
+    "domains": [
+      {
+        "key": "social",
+        "name": "Social",
+        "color": "#da291c",
+        "blurb": "Daily living conditions and access to care.",
+        "factors": ["Access to primary healthcare", "Employment status", "Health literacy", "Income", "Level of education", "Social support network"]
+      },
+      {
+        "key": "environmental",
+        "name": "Environmental",
+        "color": "#007dba",
+        "blurb": "The places and conditions people live and work in.",
+        "factors": ["Access to nutritious foods", "Climate change", "Digital literacy", "Environmental conditions", "Housing situation", "Occupation", "Proximity to crime and violence", "Proximity to interpersonal violence"]
+      },
+      {
+        "key": "cultural",
+        "name": "Cultural",
+        "color": "#f2a900",
+        "blurb": "Identity, belonging, and lived experience.",
+        "factors": ["Discrimination", "Immigration status", "Language barrier(s)", "Religion / spirituality"]
+      },
+      {
+        "key": "policy",
+        "name": "Policy",
+        "color": "#2c9942",
+        "blurb": "The systems and structures that distribute resources.",
+        "factors": ["Opportunities for civic participation", "Reliable access to the internet", "Substance use", "Transportation needs"]
+      }
+    ],
+    "closing": "Throughout the fellowship, fellows map their own research questions onto these domains — pinpointing the social drivers at play, designing studies that measure them, and proposing interventions that move outcomes. The framework anchors the program's case studies, gallery walks, and mentored project work."
+  },
+  "inquiry": {
+    "headline": "Inquiries",
+    "intro": "Questions about the SDOH ART Fellowship, eligibility, or mentorship? Send us a note and the program team will respond.",
+    "email": "nursingquestions@emory.edu"
+  }
+}

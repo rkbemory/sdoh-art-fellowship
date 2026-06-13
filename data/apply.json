@@ -1,0 +1,27 @@
+{
+  "applicationsOpen": false,
+  "circular": "assets/docs/sdoh-art-program-circular.pdf",
+  "applicationUrl": "",
+  "headline": "Apply to the SDOH ART Fellowship",
+  "intro": "Complete the application below. You can review and edit every field before submitting, attach your CV and a headshot, and download a PDF copy of your completed application for your records.",
+  "eligibility": "Open to early-career and mid-career nurse scientists and interdisciplinary doctoral students, postdoctoral fellows, and faculty whose research engages the social determinants of health. (Final eligibility language to be confirmed.)",
+  "deadline": "To be announced",
+  "submitEmail": "",
+  "fields": [
+    { "name": "fullName", "label": "Full name", "type": "text", "required": true, "enabled": true },
+    { "name": "email", "label": "Email address", "type": "email", "required": true, "enabled": true },
+    { "name": "phone", "label": "Phone number", "type": "tel", "required": false, "enabled": true },
+    { "name": "institution", "label": "Current institution", "type": "text", "required": true, "enabled": true },
+    { "name": "program", "label": "Program or department", "type": "text", "required": false, "enabled": true },
+    { "name": "credentials", "label": "Degrees and credentials", "type": "text", "required": false, "enabled": true, "help": "e.g. MSN, RN, PhD candidate" },
+    { "name": "careerStage", "label": "Career stage", "type": "select", "required": true, "enabled": true, "options": ["First-year PhD student", "Advanced doctoral student", "Postdoctoral fellow", "Early-career faculty", "Mid-career faculty"] },
+    { "name": "researchArea", "label": "Research area / SDOH topic of interest", "type": "text", "required": true, "enabled": true },
+    { "name": "preferredMentor", "label": "Preferred Emory mentor (optional)", "type": "text", "required": false, "enabled": true },
+    { "name": "statement", "label": "Statement of research interest", "type": "textarea", "required": true, "enabled": true, "help": "Briefly describe your research and how the fellowship fits your goals." },
+    { "name": "cv", "label": "Upload CV (PDF or DOC)", "type": "file", "required": true, "enabled": true },
+    { "name": "photo", "label": "Upload headshot", "type": "file", "required": false, "enabled": true },
+    { "name": "references", "label": "Reference letters or referee contacts", "type": "textarea", "required": true, "enabled": true, "help": "List referees with email, or note that letters will be sent separately. Applications without references are considered incomplete." },
+    { "name": "hearAbout", "label": "How did you hear about the program?", "type": "select", "required": false, "enabled": true, "options": ["Emory website", "Faculty referral", "Colleague", "Conference", "Social media", "Other"] },
+    { "name": "consent", "label": "I confirm the information provided is accurate.", "type": "checkbox", "required": true, "enabled": true }
+  ]
+}

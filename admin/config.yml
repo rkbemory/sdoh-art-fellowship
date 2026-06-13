@@ -1,0 +1,200 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+site_url: https://example.netlify.app
+display_url: https://example.netlify.app
+logo_url: ""
+
+collections:
+  - name: fellows
+    label: "Fellows"
+    delete: false
+    files:
+      - name: fellows
+        label: "Fellows roster"
+        file: "data/fellows.json"
+        description: "Add, edit, or remove fellows. Cohort sets which year they appear under."
+        fields:
+          - name: fellows
+            label: "Fellows"
+            label_singular: "Fellow"
+            widget: list
+            summary: "{{fields.name}} — {{fields.cohort}}"
+            fields:
+              - { name: id, label: "ID (slug)", widget: string, hint: "lowercase, no spaces, e.g. jane-doe" }
+              - { name: name, label: "Full name", widget: string }
+              - { name: credentials, label: "Credentials", widget: string, required: false }
+              - { name: cohort, label: "Cohort year", widget: number, value_type: int, min: 2025 }
+              - { name: institution, label: "Institution", widget: string }
+              - { name: role, label: "Role", widget: string }
+              - { name: firstYear, label: "First-year PhD fellow", widget: boolean, default: false }
+              - { name: focus, label: "Research focus (one line)", widget: string }
+              - { name: bio, label: "Bio", widget: text, required: false }
+              - { name: mentorExternal, label: "External mentor", widget: string, required: false }
+              - { name: mentorEmory, label: "Emory mentor", widget: string, required: false }
+              - { name: status, label: "Status", widget: string, default: "Fellow" }
+              - { name: photo, label: "Headshot", widget: image, required: false, hint: "Optional — a navy monogram shows until a photo is added." }
+
+  - name: faculty
+    label: "Faculty"
+    files:
+      - name: faculty
+        label: "Faculty & mentors"
+        file: "data/faculty.json"
+        fields:
+          - name: faculty
+            label: "Faculty"
+            label_singular: "Faculty member"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: id, label: "ID (slug)", widget: string }
+              - { name: name, label: "Name", widget: string }
+              - { name: title, label: "Designation", widget: string }
+              - { name: role, label: "Role", widget: select, options: ["core", "mentor"], default: "mentor" }
+              - { name: institute, label: "Institute", widget: string, required: false }
+              - { name: areaOfResearch, label: "Area of research", widget: string, required: false }
+              - { name: linkedin, label: "LinkedIn URL", widget: string, required: false }
+              - { name: bio, label: "Bio", widget: text, required: false }
+              - { name: photo, label: "Photo", widget: image, required: false }
+
+  - name: news
+    label: "News"
+    files:
+      - name: news
+        label: "News items"
+        file: "data/news.json"
+        fields:
+          - name: news
+            label: "News"
+            label_singular: "News item"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: id, label: "ID (slug)", widget: string }
+              - { name: title, label: "Headline", widget: string }
+              - { name: outlet, label: "Outlet", widget: string }
+              - { name: date, label: "Date", widget: string, hint: "e.g. 2025-06" }
+              - { name: url, label: "Link (URL)", widget: string }
+              - { name: excerpt, label: "Excerpt", widget: text }
+              - { name: image, label: "Thumbnail", widget: image, required: false }
+
+  - name: gallery
+    label: "Photo Booth"
+    files:
+      - name: gallery
+        label: "Gallery photos"
+        file: "data/gallery.json"
+        fields:
+          - name: gallery
+            label: "Photos"
+            label_singular: "Photo"
+            widget: list
+            summary: "{{fields.caption}}"
+            fields:
+              - { name: id, label: "ID", widget: string }
+              - { name: image, label: "Photo", widget: image }
+              - { name: caption, label: "Caption", widget: string }
+              - { name: cohort, label: "Cohort year", widget: number, value_type: int, required: false }
+              - { name: event, label: "Event", widget: string, required: false }
+
+  - name: pages
+    label: "Pages"
+    files:
+      - name: pages
+        label: "About / Framework / Inquiry"
+        file: "data/pages.json"
+        fields:
+          - name: about
+            label: "About page"
+            widget: object
+            fields:
+              - { name: headline, label: "Headline", widget: string }
+              - { name: lead, label: "Lead", widget: text }
+              - { name: body, label: "Body (Markdown)", widget: text }
+              - name: benefits
+                label: "Benefits"
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: title, label: "Title", widget: string }
+                  - { name: text, label: "Text", widget: text }
+              - name: course
+                label: "Course structure"
+                widget: object
+                fields:
+                  - { name: intro, label: "Intro", widget: text }
+                  - name: days
+                    label: "Days"
+                    widget: list
+                    summary: "{{fields.day}} — {{fields.title}}"
+                    fields:
+                      - { name: day, label: "Day label", widget: string }
+                      - { name: title, label: "Title", widget: string }
+                      - { name: focus, label: "Focus", widget: text }
+              - { name: eligibility, label: "Eligibility", widget: list, field: { name: item, label: "Item", widget: string } }
+              - name: contact
+                label: "Contact"
+                widget: object
+                fields:
+                  - { name: director, label: "Director / contact name", widget: string }
+                  - { name: email, label: "Email", widget: string }
+                  - { name: note, label: "Note", widget: text }
+          - name: framework
+            label: "Framework page"
+            widget: object
+            fields:
+              - { name: headline, label: "Headline", widget: string }
+              - { name: intro, label: "Intro", widget: text }
+              - name: domains
+                label: "Domains"
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: key, label: "Key", widget: string }
+                  - { name: name, label: "Name", widget: string }
+                  - { name: color, label: "Color (hex)", widget: string }
+                  - { name: blurb, label: "Blurb", widget: string }
+                  - { name: factors, label: "Factors", widget: list, field: { name: factor, label: "Factor", widget: string } }
+              - { name: closing, label: "Closing", widget: text }
+          - name: inquiry
+            label: "Inquiry page"
+            widget: object
+            fields:
+              - { name: headline, label: "Headline", widget: string }
+              - { name: intro, label: "Intro", widget: text }
+              - { name: email, label: "Contact email", widget: string }
+
+  - name: apply
+    label: "Application form"
+    files:
+      - name: apply
+        label: "Apply config"
+        file: "data/apply.json"
+        description: "Control the application: open/close the portal, the program circular, the application link, and which fields appear."
+        fields:
+          - { name: applicationsOpen, label: "Applications open?", widget: boolean, default: false, hint: "Turn ON when the program is announced to open the application portal." }
+          - { name: circular, label: "Program circular (PDF)", widget: file, required: false, hint: "Shown to everyone on the Apply page." }
+          - { name: applicationUrl, label: "External application link (optional)", widget: string, required: false, hint: "If set and applications are open, the Apply button links here. Leave blank to use the built-in form." }
+          - { name: headline, label: "Headline", widget: string }
+          - { name: intro, label: "Intro", widget: text }
+          - { name: eligibility, label: "Eligibility", widget: text }
+          - { name: deadline, label: "Deadline", widget: string }
+          - { name: submitEmail, label: "Notify email", widget: string, required: false }
+          - name: fields
+            label: "Form fields"
+            label_singular: "Field"
+            widget: list
+            summary: "{{fields.label}} ({{fields.type}})"
+            fields:
+              - { name: name, label: "Field name (no spaces)", widget: string }
+              - { name: label, label: "Label", widget: string }
+              - { name: type, label: "Type", widget: select, options: ["text", "email", "tel", "textarea", "select", "file", "checkbox"] }
+              - { name: required, label: "Required", widget: boolean, default: false }
+              - { name: enabled, label: "Show on form", widget: boolean, default: true }
+              - { name: help, label: "Help text", widget: string, required: false }
+              - { name: options, label: "Options (for select)", widget: list, required: false, field: { name: option, label: "Option", widget: string } }

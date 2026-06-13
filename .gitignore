@@ -1,0 +1,11 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies (none used, but just in case)
+node_modules/
+
+# Local env
+.env
+.env.local

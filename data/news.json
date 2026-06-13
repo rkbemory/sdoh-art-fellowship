@@ -1,0 +1,22 @@
+{
+  "news": [
+    {
+      "id": "linkedin-year2-fellows-2026",
+      "title": "SDOH ART Fellowship welcomes its Year 2 fellows to campus",
+      "outlet": "Nell Hodgson Woodruff School of Nursing · LinkedIn",
+      "date": "2026-06",
+      "url": "https://www.linkedin.com/posts/nell-hodgson-woodruff-school-of-nursing-at-emory-university_our-nih-funded-social-determinants-of-health-activity-7470851855053434880-6p6T",
+      "excerpt": "The NIH-funded SDOH ART Fellowship welcomed its Year 2 fellows to Emory's campus for an intensive, faculty-led in-person training, a welcome dinner with mentors, and a guided campus tour. Directed by Dr. Jill Hamilton, the program equips early- and mid-career researchers to examine how social determinants shape health outcomes.",
+      "image": "assets/img/gallery/photo-3.jpg"
+    },
+    {
+      "id": "emory-taps-researchers-2025",
+      "title": "Emory School of Nursing taps researchers for social determinants of health fellowship",
+      "outlet": "Emory News Center",
+      "date": "2025-06",
+      "url": "https://news.emory.edu/stories/2025/06/emory-school-nursing-taps-researchers-social-determinants-health-fellowship",
+      "excerpt": "Emory's Nell Hodgson Woodruff School of Nursing welcomes its inaugural cohort of SDOH ART fellows, a national group of nurse scientists training to address the social drivers of health.",
+      "image": "assets/img/gallery/photo-4.jpg"
+    }
+  ]
+}
