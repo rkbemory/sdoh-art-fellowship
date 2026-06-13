@@ -122,20 +122,29 @@ function renderAbout() {
       </div></section>` : ''}`;
 }
 
+function puzzlePiece(color) {
+  return `<svg class="fw-piece" viewBox="0 0 24 24" aria-hidden="true"><path fill="${escapeHtml(color)}" stroke="#ffffff" stroke-width="0.7" stroke-linejoin="round" d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/></svg>`;
+}
+
 function renderFramework() {
   const f = store.pages.framework;
-  const cards = f.domains.map(d => `
-    <article class="fw-card">
+  const list = arr => `<ul>${arr.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul>`;
+  const body = d => d.parts
+    ? `<div class="fw-parts">${d.parts.map(p => `<div class="fw-part"><h4 style="color:${escapeHtml(d.color)}">${escapeHtml(p.label)}</h4>${list(p.factors)}</div>`).join('')}</div>`
+    : list(d.factors);
+  const ordered = [...f.domains].sort((a, b) => (a.parts ? 1 : 0) - (b.parts ? 1 : 0));
+  const cards = ordered.map(d => `
+    <article class="fw-card${d.parts ? ' wide' : ''}">
       <div class="bar" style="background:${escapeHtml(d.color)}"></div>
       <div class="inner">
-        <h3><span class="dot" style="background:${escapeHtml(d.color)}"></span>${escapeHtml(d.name)}</h3>
+        <div class="fw-head">${puzzlePiece(d.color)}<h3>${escapeHtml(d.name)}</h3></div>
         <p class="blurb">${escapeHtml(d.blurb)}</p>
-        <ul>${d.factors.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul>
+        ${body(d)}
       </div>
     </article>`).join('');
   main().innerHTML = `${pageHead('Framework', f.headline, '')}
     <div class="fw-top">
-      <div class="fw-puzzle"><img src="assets/img/SDOH_Framework.svg" alt="The NHWSN SDOH framework: a four-piece puzzle of Social, Environmental, Cultural and Policy domains." /></div>
+      <div class="fw-puzzle"><img src="assets/img/SDOH_Framework.svg" alt="The NHWSN four-pillar SDOH framework: Social, Cultural, Environmental and Policy conditions as an interlocking puzzle." /></div>
       <p class="sub">${escapeHtml(f.intro)}</p>
     </div>
     <div class="fw-domains">${cards}</div>
@@ -243,8 +252,15 @@ function renderFellows(cohortStr, selId) {
 
 function shortInst(inst) {
   return String(inst).split(',')[0]
-    .replace('University of ', 'U. ')
-    .replace(' University', '');
+    .replace('University of ', 'U. ');
+}
+
+function drNames(str) {
+  return String(str || '').split(/\s*[,&]\s*/).map(s => {
+    s = s.trim();
+    if (!s) return '';
+    return /^(dr|drs|prof|professor)\b/i.test(s) ? s : 'Dr. ' + s;
+  }).filter(Boolean).join(', ');
 }
 
 function fellowDetail(f) {
@@ -252,8 +268,8 @@ function fellowDetail(f) {
   rows.push(['Institution', f.institution]);
   rows.push(['Role', f.role]);
   rows.push(['Research focus', f.focus]);
-  if (f.mentorEmory) rows.push(['Emory mentor', f.mentorEmory]);
-  if (f.mentorExternal) rows.push(['External mentor', f.mentorExternal]);
+  if (f.mentorEmory) rows.push(['Emory mentor', drNames(f.mentorEmory)]);
+  if (f.mentorExternal) rows.push(['External mentor', drNames(f.mentorExternal)]);
   rows.push(['Status', f.status || 'Fellow']);
   const rowHtml = rows.map(([k, v]) => `
     <div class="detail-row"><div class="k">${escapeHtml(k)}</div><div class="v">${escapeHtml(v)}</div></div>`).join('');

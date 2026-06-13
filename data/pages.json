@@ -2,7 +2,7 @@
   "about": {
     "headline": "Advanced Research Training in Social Determinants of Health",
     "lead": "A mentored fellowship at Emory's Nell Hodgson Woodruff School of Nursing preparing the next generation of nurse scientists to confront the social drivers of health.",
-    "body": "The SDOH ART Fellowship is a national training program hosted by Emory University's Nell Hodgson Woodruff School of Nursing. Funded by the National Institute of Nursing Research (NIH/NINR), it equips nurse scientists and interdisciplinary researchers with the methods, mentorship, and frameworks to understand — and act on — how social, environmental, cultural, and policy conditions shape health across diverse populations.\n\n## Who it's for\n\nThe fellowship supports scholars at two stages. **Early-career fellows** receive mentored training to grow into independent investigators with advanced SDOH research skills. **Mid-career fellows** integrate an SDOH lens into an established program of research, positioning them as leaders in the field.\n\n## The cohorts\n\nFunded as a three-year initiative, the fellowship has welcomed two cohorts to date — 2025 and 2026 — with a third to follow in 2027. Every fellow is matched with a dedicated Emory faculty mentor aligned to their research focus, and led by core faculty member Dr. Jill Hamilton.",
+    "body": "The SDOH ART Fellowship is a national training program hosted by Emory University's Nell Hodgson Woodruff School of Nursing. Funded by the National Institute of Nursing Research (NIH/NINR), it equips nurse scientists and interdisciplinary researchers with the methods, mentorship, and frameworks to understand — and act on — how social, environmental, cultural, and policy conditions shape health across diverse populations.\n\n## Who it's for\n\nThe fellowship supports scholars at two stages. **Early-career fellows** receive mentored training to grow into independent investigators with advanced SDOH research skills. **Mid-career fellows** integrate an SDOH lens into an established program of research, positioning them as leaders in the field.\n\n## The cohorts\n\nFunded as a three-year initiative, the fellowship has welcomed two cohorts to date — 2025 and 2026 — with a third to follow in 2027. Every fellow is matched with a dedicated Emory faculty mentor aligned to their research focus, and led by program director Dr. Jill Hamilton.",
     "benefits": [
       { "title": "Dedicated faculty mentorship", "text": "An NIH-funded Emory mentor matched to your research focus, guiding you throughout the program year." },
       { "title": "Intensive five-day short course", "text": "An in-person short course in SDOH research methods at Emory's Schools of Nursing and Public Health." },
@@ -35,39 +35,42 @@
     }
   },
   "framework": {
-    "headline": "The NHWSN Social Determinants of Health Framework",
-    "intro": "The Nell Hodgson Woodruff School of Nursing organizes the social determinants of health into four interconnected domains. Like pieces of a single puzzle, the domains overlap and reinforce one another to shape health outcomes. The framework gives fellows a shared language for naming the non-biological forces behind the disparities they study — and where intervention is possible.",
+    "headline": "The NHWSN Four-Pillar SDOH Framework",
+    "intro": "Developed by Dr. Jill Hamilton at the Nell Hodgson Woodruff School of Nursing, this framework organizes the social determinants of health into four pillars — Social, Cultural, Environmental, and Policy conditions. Like a LEGO set, the four pieces lock together to form the complete picture of what shapes health. Each pillar names the non-biological forces behind health disparities, and points to where intervention is possible.",
     "domains": [
       {
         "key": "social",
-        "name": "Social",
+        "name": "Social conditions",
         "color": "#da291c",
-        "blurb": "Daily living conditions and access to care.",
-        "factors": ["Access to primary healthcare", "Employment status", "Health literacy", "Income", "Level of education", "Social support network"]
-      },
-      {
-        "key": "environmental",
-        "name": "Environmental",
-        "color": "#007dba",
-        "blurb": "The places and conditions people live and work in.",
-        "factors": ["Access to nutritious foods", "Climate change", "Digital literacy", "Environmental conditions", "Housing situation", "Occupation", "Proximity to crime and violence", "Proximity to interpersonal violence"]
+        "blurb": "The societal factors — shaped by structural inequities in resources, education, and work — that influence whether people thrive.",
+        "factors": ["Access to financial resources, education & occupation", "Health literacy", "Access to health care", "Social support networks"]
       },
       {
         "key": "cultural",
-        "name": "Cultural",
+        "name": "Cultural conditions",
         "color": "#f2a900",
-        "blurb": "Identity, belonging, and lived experience.",
-        "factors": ["Discrimination", "Immigration status", "Language barrier(s)", "Religion / spirituality"]
+        "blurb": "The customary beliefs, norms, values, and practices shared by a community in a given place and time.",
+        "factors": ["Discrimination", "Religion & spirituality", "Cultural & collective memory", "Social norms"]
+      },
+      {
+        "key": "environmental",
+        "name": "Environmental conditions",
+        "color": "#007dba",
+        "blurb": "The physical surroundings and human-shaped settings people live and work in — considered in two parts.",
+        "parts": [
+          { "label": "Physical environment", "factors": ["Natural resources & disasters", "Climate change & temperature extremes", "Exposure to toxic substances", "Recreational resources & safe play spaces"] },
+          { "label": "Social environment", "factors": ["Quality of schools", "Housing", "Affordable transportation", "Faith-based institutions", "Family composition", "Neighborhood safety", "Community design"] }
+        ]
       },
       {
         "key": "policy",
-        "name": "Policy",
+        "name": "Policy conditions",
         "color": "#2c9942",
-        "blurb": "The systems and structures that distribute resources.",
-        "factors": ["Opportunities for civic participation", "Reliable access to the internet", "Substance use", "Transportation needs"]
+        "blurb": "The laws and systems that distribute resources and opportunity — the foundation underlying the other three pillars.",
+        "factors": ["Civic participation", "Housing & zoning policy", "Transportation access", "Health policy"]
       }
     ],
-    "closing": "Throughout the fellowship, fellows map their own research questions onto these domains — pinpointing the social drivers at play, designing studies that measure them, and proposing interventions that move outcomes. The framework anchors the program's case studies, gallery walks, and mentored project work."
+    "closing": "Throughout the fellowship, fellows map their own research questions onto these four pillars — pinpointing the drivers at play, designing studies that measure them, and proposing interventions that move outcomes. The framework anchors the program's case studies, gallery walks, and mentored project work."
   },
   "inquiry": {
     "headline": "Inquiries",

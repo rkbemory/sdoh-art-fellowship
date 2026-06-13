@@ -1,4 +1,4 @@
-{
+﻿{
   "fellows": [
     {
       "id": "emefa-awo-adawudu",
@@ -13,7 +13,7 @@
       "mentorExternal": "",
       "mentorEmory": "Jill Hamilton, Roxana Chicas",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/emefa-awo-adawudu.jpg"
     },
     {
       "id": "david-chinyeaka-agor",
@@ -28,7 +28,7 @@
       "mentorExternal": "",
       "mentorEmory": "Jill Hamilton",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/david-chinyeaka-agor.jpg"
     },
     {
       "id": "natalia-babenko",
@@ -43,22 +43,22 @@
       "mentorExternal": "",
       "mentorEmory": "Glenna Brewster",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/natalia-babenko.jpg"
     },
     {
       "id": "rajib-kumar-biswas",
       "name": "Rajib Kumar Biswas",
-      "credentials": "RN, MPH",
+      "credentials": "RN, MPS, MSN",
       "cohort": 2025,
       "institution": "Emory University School of Nursing",
       "role": "PhD student",
       "firstYear": false,
-      "focus": "Injury prevention in Alzheimer's disease and related dementias",
-      "bio": "Biswas is a PhD student at the Emory School of Nursing that specializes in injury prevention among patients with cognitive decline, including Alzheimer's disease and related dementias. With over a decade of experience in clinical practice and research, he focuses on the role of SDOH in shaping health outcomes for vulnerable populations.",
+      "focus": "Dementia caregiving, behavioral intervention development, SDOH, and injury prevention",
+      "bio": "Biswas is a PhD student at the Nell Hodgson Woodruff School of Nursing at Emory University. His research centers on dementia caregiving and the development of behavioral interventions, with an emphasis on injury prevention among people living with Alzheimer's disease and related dementias. Drawing on more than a decade of clinical and research experience, he examines how social determinants of health shape outcomes for vulnerable populations.",
       "mentorExternal": "",
       "mentorEmory": "Ken Hepburn",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/rajib-kumar-biswas.jpg"
     },
     {
       "id": "yanjun-dong",
@@ -73,7 +73,7 @@
       "mentorExternal": "",
       "mentorEmory": "Jane Chung",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/yanjun-dong.jpg"
     },
     {
       "id": "aisha-ellis",
@@ -88,7 +88,7 @@
       "mentorExternal": "",
       "mentorEmory": "Kalisha Bonds",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/aisha-ellis.jpg"
     },
     {
       "id": "taleah-frazier",
@@ -103,7 +103,7 @@
       "mentorExternal": "",
       "mentorEmory": "Telisa Spikes",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/taleah-frazier.jpg"
     },
     {
       "id": "john-a-fuller",
@@ -118,14 +118,14 @@
       "mentorExternal": "",
       "mentorEmory": "Jill Hamilton, Jessica Wells",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/john-a-fuller.jpg"
     },
     {
       "id": "laura-mata-lopez",
       "name": "Laura Mata Lopez",
       "credentials": "APRN, PMHNP-BC, CARN-AP",
       "cohort": 2025,
-      "institution": "Johns Hopkins University School of Nursing",
+      "institution": "Johns Hopkins School of Nursing",
       "role": "PhD candidate",
       "firstYear": false,
       "focus": "Mental health and substance use care for Latino(a) immigrants",
@@ -133,7 +133,7 @@
       "mentorExternal": "",
       "mentorEmory": "Jacob Kariuki, Foster Osei Baah",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/laura-mata-lopez.jpg"
     },
     {
       "id": "andrew-lu",
@@ -148,7 +148,7 @@
       "mentorExternal": "",
       "mentorEmory": "Ran Xiao",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/andrew-lu.jpg"
     },
     {
       "id": "maria-jose-baeza-robba",
@@ -163,7 +163,7 @@
       "mentorExternal": "",
       "mentorEmory": "Sangmi Kim",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/maria-jose-baeza-robba.jpg"
     },
     {
       "id": "dalton-scott",
@@ -178,7 +178,7 @@
       "mentorExternal": "",
       "mentorEmory": "Nicolas Metheny",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/dalton-scott.jpg"
     },
     {
       "id": "curisa-tucker",
@@ -193,7 +193,7 @@
       "mentorExternal": "",
       "mentorEmory": "Nicole Carlson",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/curisa-tucker.jpg"
     },
     {
       "id": "caitlin-webster",
@@ -208,7 +208,7 @@
       "mentorExternal": "",
       "mentorEmory": "Jinbing Bai",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/caitlin-webster.jpg"
     },
 
     {
@@ -224,7 +224,7 @@
       "mentorExternal": "Dr. Jessica Williams",
       "mentorEmory": "Sangmi Kim",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/abigail-julier-beliveau.jpg"
     },
     {
       "id": "ashley-bryant",
@@ -239,7 +239,7 @@
       "mentorExternal": "Dr. Schenita Randolph",
       "mentorEmory": "Glenna Brewster, Jane Chung",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/ashley-bryant.jpg"
     },
     {
       "id": "jasmine-dixon",
@@ -254,7 +254,7 @@
       "mentorExternal": "Dr. Vonetta Dotson",
       "mentorEmory": "Glenna Brewster",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/jasmine-dixon.jpg"
     },
     {
       "id": "sonja-emerson",
@@ -269,7 +269,7 @@
       "mentorExternal": "Sharon Karp, Mulubrhan Mogos",
       "mentorEmory": "Nicolas Metheny",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/sonja-emerson.jpg"
     },
     {
       "id": "charles-nukunu-gagbe",
@@ -284,7 +284,7 @@
       "mentorExternal": "Dr. Karina Gattamorta",
       "mentorEmory": "Rasheeta Chandler",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/charles-nukunu-gagbe.jpg"
     },
     {
       "id": "tammy-hall",
@@ -299,7 +299,7 @@
       "mentorExternal": "Kate Clouse",
       "mentorEmory": "Jinbing Bai",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/tammy-hall.jpg"
     },
     {
       "id": "joann-jabari",
@@ -314,7 +314,7 @@
       "mentorExternal": "Karla Washington",
       "mentorEmory": "Emily Mroz",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/joann-jabari.jpg"
     },
     {
       "id": "rui-luo",
@@ -329,14 +329,14 @@
       "mentorExternal": "Xiaoming Li, Xueying Yang",
       "mentorEmory": "Nicolas Metheny, Jessica Wells",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/rui-luo.jpg"
     },
     {
       "id": "ibrahim-wunpini-mashoud",
       "name": "Ibrahim Wunpini Mashoud",
       "credentials": "",
       "cohort": 2026,
-      "institution": "Emory University",
+      "institution": "Emory University School of Nursing",
       "role": "First-year PhD student",
       "firstYear": true,
       "focus": "Household solid fuels and cardiometabolic risk in Kenya",
@@ -344,7 +344,7 @@
       "mentorExternal": "Dr. Jacob Kariuki",
       "mentorEmory": "Jacob Kariuki, Nicolas Giordano",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/ibrahim-wunpini-mashoud.jpg"
     },
     {
       "id": "abdul-manaf-mutaru",
@@ -359,7 +359,7 @@
       "mentorExternal": "Dr. Hudson Santos",
       "mentorEmory": "Nicole Carlson",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/abdul-manaf-mutaru.jpg"
     },
     {
       "id": "eric-peprah-osei",
@@ -374,7 +374,7 @@
       "mentorExternal": "Dr. Pamela Martyn-Nemeth",
       "mentorEmory": "Jane Chung",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/eric-peprah-osei.jpg"
     },
     {
       "id": "olivia-short",
@@ -389,7 +389,7 @@
       "mentorExternal": "Dr. Rosa Gonzalez-Guarda",
       "mentorEmory": "Sangmi Kim",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/olivia-short.jpg"
     },
     {
       "id": "edith-nnenna-utaka",
@@ -404,7 +404,7 @@
       "mentorExternal": "Dr. Xueying Yang",
       "mentorEmory": "Jinbing Bai, Jessica Wells",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/edith-nnenna-utaka.jpg"
     },
     {
       "id": "luke-velickoff",
@@ -419,7 +419,7 @@
       "mentorExternal": "Dr. Tonia Poteat, Dr. Chip Bailey",
       "mentorEmory": "Nicolas Metheny",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/luke-velickoff.jpg"
     },
     {
       "id": "nayung-youn",
@@ -434,7 +434,7 @@
       "mentorExternal": "Dr. Charisse Madlock-Brown",
       "mentorEmory": "Ran Xiao, Emily Mroz",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/nayung-youn.jpg"
     },
     {
       "id": "hao-zhang",
@@ -449,7 +449,7 @@
       "mentorExternal": "Dr. Xueying Yang",
       "mentorEmory": "",
       "status": "Fellow",
-      "photo": ""
+      "photo": "assets/img/fellows/hao-zhang.jpg"
     }
   ]
 }
