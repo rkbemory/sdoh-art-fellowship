@@ -178,21 +178,23 @@ function renderFaculty() {
   const mentors = fac.filter(f => f.role !== 'core');
 
   const coreCard = f => `
-    <article class="fac-card core-card">
+    <article class="fac-card core-card" data-fid="${escapeHtml(f.id)}">
       ${avatar(f, 'core')}
       <div class="core-info">
         <div class="core-eyebrow">Program leadership</div>
         <div class="core-name">${escapeHtml(f.name)}</div>
-        <div class="fac-sub">${escapeHtml(f.title || 'Faculty Mentor')} · ${escapeHtml(f.institute || 'Emory University')}</div>
+        <div class="fac-desg">${escapeHtml(f.title || 'Faculty Mentor')}</div>
+        <div class="fac-inst">${escapeHtml(f.institute || 'Emory University')}</div>
         ${facTags(f)}
       </div>
     </article>`;
 
   const mentorCard = f => `
-    <article class="fac-card">
+    <article class="fac-card" data-fid="${escapeHtml(f.id)}">
       ${avatar(f, 'fac')}
       <div class="fac-name">${escapeHtml(f.name)}</div>
-      <div class="fac-sub">${escapeHtml(f.title || 'Faculty Mentor')} · ${escapeHtml(f.institute || 'Emory University')}</div>
+      <div class="fac-desg">${escapeHtml(f.title || 'Faculty Mentor')}</div>
+      <div class="fac-inst">${escapeHtml(f.institute || 'Emory University')}</div>
       ${facTags(f)}
     </article>`;
 
