@@ -166,28 +166,39 @@ function linkedinIcon(url) {
   return `<span class="fac-li disabled" title="LinkedIn — add via CMS" aria-hidden="true">${svg}</span>`;
 }
 
+function facTags(f) {
+  const arr = (f.areaOfResearch || '').split(';').map(s => s.trim()).filter(Boolean);
+  if (!arr.length) return '<div class="fac-tags"><span class="ph">Research area to be added</span></div>';
+  return `<div class="fac-tags">${arr.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>`;
+}
+
 function renderFaculty() {
   const fac = store.faculty.faculty || [];
   const core = fac.filter(f => f.role === 'core');
   const mentors = fac.filter(f => f.role !== 'core');
-  const card = f => `
-    <article class="fac-card${f.role === 'core' ? ' core' : ''}">
-      <div class="fac-top">
-        ${avatar(f, 'md')}
-        <div class="fac-id">
-          <div class="nm">${escapeHtml(f.name)}</div>
-          <div class="desg">${escapeHtml(f.title || 'Faculty Mentor')}</div>
-        </div>
-        ${linkedinIcon(f.linkedin)}
-      </div>
-      <div class="fac-meta">
-        <div class="fac-line"><span class="lbl">Institute</span><span>${escapeHtml(f.institute || 'Emory University')}</span></div>
-        <div class="fac-line"><span class="lbl">Research</span><span>${f.areaOfResearch ? escapeHtml(f.areaOfResearch) : '<em class="ph">To be added</em>'}</span></div>
+
+  const coreCard = f => `
+    <article class="fac-card core-card">
+      ${avatar(f, 'core')}
+      <div class="core-info">
+        <div class="core-eyebrow">Program leadership</div>
+        <div class="core-name">${escapeHtml(f.name)}</div>
+        <div class="fac-sub">${escapeHtml(f.title || 'Faculty Mentor')} · ${escapeHtml(f.institute || 'Emory University')}</div>
+        ${facTags(f)}
       </div>
     </article>`;
+
+  const mentorCard = f => `
+    <article class="fac-card">
+      ${avatar(f, 'fac')}
+      <div class="fac-name">${escapeHtml(f.name)}</div>
+      <div class="fac-sub">${escapeHtml(f.title || 'Faculty Mentor')} · ${escapeHtml(f.institute || 'Emory University')}</div>
+      ${facTags(f)}
+    </article>`;
+
   main().innerHTML = `${pageHead('Faculty involved', 'Faculty & mentors', 'A network of NIH-funded Emory faculty mentors guides each fellow, matched to their research focus.')}
-    ${core.length ? `<div class="grid cards" style="margin-bottom:22px">${core.map(card).join('')}</div>` : ''}
-    <div class="grid cards">${mentors.map(card).join('')}</div>`;
+    ${core.map(coreCard).join('')}
+    <div class="fac-grid">${mentors.map(mentorCard).join('')}</div>`;
 }
 
 function cohortLabel(c) { return `${c} cohort`; }
