@@ -116,8 +116,7 @@ function renderAbout() {
       <div class="contact-card">
         <div><strong>${escapeHtml(c.director || 'Program team')}</strong>${c.note ? `<p>${escapeHtml(c.note)}</p>` : ''}</div>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:${escapeHtml(c.email)}">Email the program</a>
-          <a class="btn btn-ghost" href="#/inquiry">Send an inquiry</a>
+          <a class="btn btn-primary" href="#/inquiry">Send an inquiry</a>
         </div>
       </div></section>` : ''}`;
 }
