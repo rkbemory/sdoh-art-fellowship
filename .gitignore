@@ -9,3 +9,6 @@ node_modules/
 # Local env
 .env
 .env.local
+
+# scratch / extraction files
+_*.txt
