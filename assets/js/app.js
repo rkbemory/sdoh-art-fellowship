@@ -464,7 +464,6 @@ function renderInquiry() {
         <div class="field"><label for="iqMsg">Message</label><textarea id="iqMsg"></textarea></div>
         <div class="form-actions">
           <button type="button" class="btn btn-primary" id="iqSend">Send message</button>
-          <a class="btn btn-ghost" href="mailto:${escapeHtml(q.email)}">Email ${escapeHtml(q.email)}</a>
         </div>
       </div>
     </div>`;
