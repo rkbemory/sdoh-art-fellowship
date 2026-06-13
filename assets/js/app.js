@@ -70,16 +70,17 @@ function pageHead(eyebrow, title, sub) {
 function renderHome() {
   main().innerHTML = `
     <section class="hero">
-      <div class="hero-art" aria-hidden="true"><img src="assets/img/SDOH_Framework.svg" alt="" /></div>
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <p class="hero-eyebrow">Advanced Research Training in Social Determinants of Health</p>
-        <h1 class="hero-title">SDOH ART<br />Fellowship</h1>
-        <p class="hero-tag">Preparing the next generation of nurse scientists to confront the social drivers of health.</p>
-        <div class="hero-cta">
-          <a class="btn btn-gold" href="#/about">Explore the fellowship</a>
-          <a class="btn btn-hero-ghost" href="#/fellows/2026">Meet the fellows</a>
+      <div class="hero-wrap">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">Advanced Research Training in Social Determinants of Health</p>
+          <h1 class="hero-title">SDOH ART<br />Fellowship</h1>
+          <p class="hero-tag">Preparing the next generation of nurse scientists to confront the social drivers of health.</p>
+          <div class="hero-cta">
+            <a class="btn btn-gold" href="#/about">Explore the fellowship</a>
+            <a class="btn btn-hero-ghost" href="#/fellows/2026">Meet the fellows</a>
+          </div>
         </div>
+        <div class="hero-art" aria-hidden="true"><img src="assets/img/SDOH_Framework.svg" alt="" /></div>
       </div>
     </section>`;
 }
