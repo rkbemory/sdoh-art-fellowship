@@ -221,7 +221,7 @@ function renderFellows(cohortStr, selId) {
     main().innerHTML = `${pageHead('Fellows', `${cohort} cohort`, '')}
       <div class="detail" style="max-width:640px">
         <h2>Applications open soon</h2>
-        <p>The ${cohort} cohort has not yet been selected. The SDOH ART Fellowship is funded through 2027 — check the <a href="#/apply">Apply</a> page for upcoming deadlines, or send an <a href="#/inquiry">inquiry</a> to join the interest list.</p>
+        <p>The ${cohort} cohort has not yet been selected. Check the <a href="#/apply">Apply</a> page for upcoming deadlines, or send an <a href="#/inquiry">inquiry</a> to join the interest list.</p>
       </div>`;
     return;
   }
