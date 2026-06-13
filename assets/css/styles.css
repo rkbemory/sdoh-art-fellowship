@@ -84,7 +84,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Sidebar ---------- */
 .sidebar {
-  background: var(--navy);
+  background: linear-gradient(180deg, #012169 0%, #001a52 100%);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -118,6 +118,12 @@ img { max-width: 100%; display: block; }
 .nav-item.active { background: rgba(255, 255, 255, .14); color: #fff; box-shadow: inset 3px 0 0 var(--gold); font-weight: 600; }
 
 .sidebar-spacer { flex: 1 1 auto; min-height: 16px; }
+.side-feature { display: flex; flex-direction: column; align-items: center; gap: 11px; text-align: center; padding: 16px 12px; margin: 0 4px; border-radius: var(--r-lg); text-decoration: none; transition: background .15s; }
+.side-feature:hover { background: rgba(255, 255, 255, .06); text-decoration: none; }
+.side-feature img { width: 118px; height: 118px; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .4)); transition: transform .2s; }
+.side-feature:hover img { transform: scale(1.04); }
+.side-feature span { font-family: var(--ui); font-size: .75rem; letter-spacing: .03em; color: rgba(255, 255, 255, .68); line-height: 1.35; max-width: 150px; }
+@media (max-width: 960px) { .side-feature { display: none; } }
 
 .btn-apply {
   display: flex; align-items: center; justify-content: center; gap: 8px;
