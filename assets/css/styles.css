@@ -258,6 +258,10 @@ img { max-width: 100%; display: block; }
 }
 .fac-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .fac-name { font-weight: 700; color: var(--ink); font-size: 1rem; line-height: 1.25; }
+.fac-profile { color: inherit; text-decoration: none; }
+.fac-profile:hover, .fac-profile:focus-visible { text-decoration: underline; text-underline-offset: 3px; color: inherit; }
+.fac-profile .ext { font-size: .7em; margin-left: 4px; opacity: .45; vertical-align: super; }
+.fac-profile:hover .ext { opacity: .9; }
 .fac-desg { font-size: .85rem; color: var(--ink); font-weight: 600; line-height: 1.3; }
 .fac-inst { font-size: .8rem; color: var(--muted); line-height: 1.3; margin-top: 1px; }
 .fac-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 4px; }

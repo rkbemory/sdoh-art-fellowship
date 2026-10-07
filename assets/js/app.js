@@ -180,6 +180,12 @@ function facTags(f) {
   return `<div class="fac-tags">${arr.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>`;
 }
 
+function facNameLink(f) {
+  const name = escapeHtml(f.name);
+  if (!f.profile) return name;
+  return `<a class="fac-profile" href="${escapeHtml(f.profile)}" target="_blank" rel="noopener" title="View Emory profile (opens in new tab)">${name}<span class="ext" aria-hidden="true">↗</span><span class="sr-only"> (Emory profile, opens in new tab)</span></a>`;
+}
+
 function renderFaculty() {
   const fac = store.faculty.faculty || [];
   const core = fac.filter(f => f.role === 'core');
@@ -190,7 +196,7 @@ function renderFaculty() {
       ${avatar(f, 'core')}
       <div class="core-info">
         <div class="core-eyebrow">Program leadership</div>
-        <div class="core-name">${escapeHtml(f.name)}</div>
+        <div class="core-name">${facNameLink(f)}</div>
         <div class="fac-desg">${escapeHtml(f.title || 'Faculty Mentor')}</div>
         <div class="fac-inst">${escapeHtml(f.institute || 'Emory University')}</div>
         ${facTags(f)}
@@ -200,7 +206,7 @@ function renderFaculty() {
   const mentorCard = f => `
     <article class="fac-card" data-fid="${escapeHtml(f.id)}">
       ${avatar(f, 'fac')}
-      <div class="fac-name">${escapeHtml(f.name)}</div>
+      <div class="fac-name">${facNameLink(f)}</div>
       <div class="fac-desg">${escapeHtml(f.title || 'Faculty Mentor')}</div>
       <div class="fac-inst">${escapeHtml(f.institute || 'Emory University')}</div>
       ${facTags(f)}
