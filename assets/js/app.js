@@ -362,7 +362,10 @@ function renderApply() {
       <h3>Application</h3>
       <div class="form-note"><p style="margin:0"><strong>Eligibility.</strong> ${escapeHtml(cfg.eligibility)}</p></div>
       <p>${escapeHtml(cfg.intro)}</p>
-      <a class="btn btn-gold" href="${escapeHtml(cfg.applicationUrl)}" target="_blank" rel="noopener">Start application</a>
+      ${(cfg.checklist || []).length ? `<h4 class="apply-list-title">What the application asks for</h4>
+      <ol class="apply-list">${cfg.checklist.map(c => `<li><strong>${escapeHtml(c.label)}</strong>${c.detail ? `<span>${escapeHtml(c.detail)}</span>` : ''}</li>`).join('')}</ol>` : ''}
+      ${cfg.referencesNote ? `<div class="form-note"><p style="margin:0"><strong>Reference letters.</strong> ${escapeHtml(cfg.referencesNote).replace(/([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/, '<a href="mailto:$1">$1</a>')}</p></div>` : ''}
+      <a class="btn btn-gold" href="${escapeHtml(cfg.applicationUrl)}" target="_blank" rel="noopener">Start application ↗</a>
     </section>`;
   } else {
     appBlock = `<div class="form-note">
