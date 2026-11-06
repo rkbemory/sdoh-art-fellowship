@@ -12,3 +12,5 @@ node_modules/
 
 # scratch / extraction files
 _*.txt
+.wrangler/
+node_modules/
