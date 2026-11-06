@@ -342,7 +342,10 @@ function renderApply() {
   const flyer = cfg.flyer ? `
     <section class="form-card flyer-card">
       <h3>Program flyer</h3>
-      <a href="${escapeHtml(cfg.flyer)}" target="_blank" rel="noopener"><img class="flyer-img" src="${escapeHtml(cfg.flyer)}" alt="SDOH ART Fellowship flyer: NIH/NINR Advanced Research Training in non-biological influences on health, with focus areas, eligibility, and contact." loading="lazy" /></a>
+      <div class="flyer-frame">
+        <a href="${escapeHtml(cfg.flyer)}" target="_blank" rel="noopener"><img class="flyer-img" src="${escapeHtml(cfg.flyer)}" alt="SDOH ART Fellowship flyer: NIH/NINR Advanced Research Training in non-biological influences on health, with focus areas, eligibility, and contact." loading="lazy" /></a>
+        ${cfg.applicationsOpen ? `<a class="flyer-apply" href="${cfg.applicationUrl ? escapeHtml(cfg.applicationUrl) : '#/apply'}" ${cfg.applicationUrl ? 'target="_blank" rel="noopener"' : ''} aria-label="Apply now"></a>` : ''}
+      </div>
       <div class="form-actions"><a class="btn btn-ghost" href="${escapeHtml(cfg.flyer)}" download>Download flyer</a></div>
     </section>` : '';
 
@@ -402,6 +405,12 @@ function renderApply() {
 
   if (open && !cfg.applicationUrl) {
     $('#applyForm').addEventListener('submit', submitApplication);
+    const jump = $('.flyer-apply');
+    if (jump) jump.addEventListener('click', e => {
+      e.preventDefault();
+      $('#applyForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => $('#fullName') && $('#fullName').focus({ preventScroll: true }), 600);
+    });
     $('#downloadCopy').addEventListener('click', () => downloadCopy(fields));
   }
 }
