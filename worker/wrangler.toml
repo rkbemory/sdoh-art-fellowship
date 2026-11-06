@@ -1,0 +1,19 @@
+# Receives SDOH ART Fellowship applications from sdohartfellowship.org.
+# Saves each applicant to R2 (one folder each) and emails the program team.
+name = "sdoh-art-apply"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+routes = [{ pattern = "apply.sdohartfellowship.org", custom_domain = true }]
+
+[[r2_buckets]]
+binding = "APPLICATIONS"
+bucket_name = "sdoh-art-applications"
+
+[[send_email]]
+name = "MAILER"
+
+[vars]
+SITE = "https://sdohartfellowship.org"
+NOTIFY_TO = "rajib.biswas@emory.edu,jbhamil@emory.edu"
+FROM = "applications@sdohartfellowship.org"
+ALLOWED_ORIGINS = "https://sdohartfellowship.org,https://www.sdohartfellowship.org,http://localhost:8650"

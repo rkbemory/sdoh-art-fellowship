@@ -1,42 +1,105 @@
 {
   "applicationsOpen": true,
+  "cohortYear": 2027,
   "circular": "assets/docs/sdoh-art-program-circular.pdf",
   "flyer": "assets/img/art-flyer.jpg",
-  "applicationUrl": "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=nPsE4KSwT0K80DImBtXfOBwYut7FpZVPkUTepAQMOyFUM05DVTdUSlVKMDZKOFNSU0lSSkJUUjdRNi4u",
+  "applicationUrl": "",
+  "submitEndpoint": "https://apply.sdohartfellowship.org/apply",
   "headline": "Apply to the SDOH ART Fellowship",
-  "intro": "Applications are submitted through an online form (Microsoft Forms). Review the items below before you start.",
-  "checklist": [
-    { "label": "Full name" },
-    { "label": "Mailing address", "detail": "Street, city, state, and ZIP code." },
-    { "label": "Email address and contact number", "detail": "A mobile number is preferred." },
-    { "label": "Education", "detail": "Degree, institution, and years completed or to be completed." },
-    { "label": "Current employment and/or student status" },
-    { "label": "Current institution or organization" },
-    { "label": "Research experience", "detail": "Past research experience and any ongoing research programs." },
-    { "label": "Current research mentor" },
-    { "label": "Current funding", "detail": "If applicable." },
-    { "label": "Research statement (about 500 words)", "detail": "Describe your research interests and how this training would strengthen your research on non-biological influences on health (social, cultural, environmental, political). State whether you hope to use ART training primarily to: (1) identify or address gaps in understanding how non-biological influences affect your outcomes of interest, (2) target non-biological negative influences to improve health outcomes, or (3) target non-biological positive influences to maintain the health of individuals, communities, and/or societies." },
-    { "label": "Submission date" }
-  ],
-  "referencesNote": "Send all reference letters to EmoryArt@emory.edu. Each letter must include your name at the top.",
+  "intro": "Complete the form below and attach your CV. Fields marked * are required. You can download a copy of your answers for your records before or after you submit. Fellows will be notified by March 19, 2027.",
   "eligibility": "Pre- and postdoctoral fellows and early-career faculty whose research engages non-biological (social, cultural, environmental, and political) influences on health. Letters of support from research mentors and institutional leadership are required.",
-  "deadline": "To be announced",
-  "submitEmail": "",
+  "deadline": "January 4, 2027",
+  "referencesNote": "Reference letters are not uploaded here. Ask your referees to send their letters to EmoryArt@emory.edu, with your name at the top of each letter.",
   "fields": [
-    { "name": "fullName", "label": "Full name", "type": "text", "required": true, "enabled": true },
-    { "name": "email", "label": "Email address", "type": "email", "required": true, "enabled": true },
-    { "name": "phone", "label": "Phone number", "type": "tel", "required": false, "enabled": true },
-    { "name": "institution", "label": "Current institution", "type": "text", "required": true, "enabled": true },
-    { "name": "program", "label": "Program or department", "type": "text", "required": false, "enabled": true },
-    { "name": "credentials", "label": "Degrees and credentials", "type": "text", "required": false, "enabled": true, "help": "e.g. MSN, RN, PhD candidate" },
-    { "name": "careerStage", "label": "Career stage", "type": "select", "required": true, "enabled": true, "options": ["First-year PhD student", "Advanced doctoral student", "Postdoctoral fellow", "Early-career faculty", "Mid-career faculty"] },
-    { "name": "researchArea", "label": "Research area / SDOH topic of interest", "type": "text", "required": true, "enabled": true },
-    { "name": "preferredMentor", "label": "Preferred Emory mentor (optional)", "type": "text", "required": false, "enabled": true },
-    { "name": "statement", "label": "Statement of research interest", "type": "textarea", "required": true, "enabled": true, "help": "Briefly describe your research and how the fellowship fits your goals." },
-    { "name": "cv", "label": "Upload CV (PDF or DOC)", "type": "file", "required": true, "enabled": true },
-    { "name": "photo", "label": "Upload headshot", "type": "file", "required": false, "enabled": true },
-    { "name": "references", "label": "Reference letters or referee contacts", "type": "textarea", "required": true, "enabled": true, "help": "List referees with email, or note that letters will be sent separately. Applications without references are considered incomplete." },
-    { "name": "hearAbout", "label": "How did you hear about the program?", "type": "select", "required": false, "enabled": true, "options": ["Emory website", "Faculty referral", "Colleague", "Conference", "Social media", "Other"] },
-    { "name": "consent", "label": "I confirm the information provided is accurate.", "type": "checkbox", "required": true, "enabled": true }
+    {
+      "name": "fullName",
+      "label": "First and last name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "mailingAddress",
+      "label": "Mailing address, city, state, and ZIP code",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "email",
+      "label": "Email address",
+      "type": "email",
+      "required": true
+    },
+    {
+      "name": "phone",
+      "label": "Contact number",
+      "type": "tel",
+      "required": true,
+      "help": "Mobile number preferred."
+    },
+    {
+      "name": "education",
+      "label": "Education",
+      "type": "textarea",
+      "required": true,
+      "help": "Degree, institution, and years completed or to be completed."
+    },
+    {
+      "name": "employment",
+      "label": "Current employment and/or student status",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "institution",
+      "label": "Current institution or organization",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "researchExperience",
+      "label": "Research experience(s) and/or ongoing research programs",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "name": "mentor",
+      "label": "Current research mentor",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "funding",
+      "label": "Current funding",
+      "type": "text",
+      "required": false,
+      "help": "If applicable."
+    },
+    {
+      "name": "statement",
+      "label": "Statement of research interests",
+      "type": "textarea",
+      "required": true,
+      "help": "Please submit a brief (about 500 words) explanation of your research interests, and how this training program would enhance your knowledge and skills in research focused on non-biological influences on health (social, cultural, environmental, political). Specifically, please state whether you hope to use ART training primarily to: (1) help you identify or address gaps in understanding how non-biological influences affect your outcomes of interest, (2) target non-biological negative influences to improve health outcomes, or (3) target non-biological positive influences to maintain the health of individuals, communities, and/or societies."
+    },
+    {
+      "name": "cv",
+      "label": "Upload your CV",
+      "type": "file",
+      "required": true,
+      "help": "PDF or Word document, up to 10 MB."
+    },
+    {
+      "name": "photo",
+      "label": "Upload a headshot",
+      "type": "file",
+      "required": false,
+      "help": "Optional. JPG or PNG, up to 5 MB. Used for your fellow profile if selected."
+    },
+    {
+      "name": "consent",
+      "label": "I confirm the information provided is accurate.",
+      "type": "checkbox",
+      "required": true
+    }
   ]
 }

@@ -380,8 +380,10 @@ function renderApply() {
         <p style="margin:0"><strong>Deadline.</strong> ${escapeHtml(cfg.deadline)}</p>
       </div>
       <p>${escapeHtml(cfg.intro)}</p>
+      ${cfg.referencesNote ? `<div class="form-note"><p style="margin:0"><strong>Reference letters.</strong> ${escapeHtml(cfg.referencesNote).replace(/([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/, '<a href="mailto:$1">$1</a>')}</p></div>` : ''}
       <div id="applyMsg"></div>
       <form class="form-card" id="applyForm" name="application" enctype="multipart/form-data" novalidate>
+        <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
         ${fields.map(fieldMarkup).join('')}
         <div class="form-actions">
           <button type="submit" class="btn btn-primary">Submit application</button>
@@ -434,11 +436,31 @@ function submitApplication(e) {
   e.preventDefault();
   const form = e.target;
   if (!form.checkValidity()) { form.reportValidity(); return; }
-  const data = new FormData(form);
-  data.append('form-name', 'application');
-  fetch('/', { method: 'POST', body: data }).catch(() => {});
-  $('#applyMsg').innerHTML = `<div class="form-success">Thank you — your application has been submitted. A program coordinator will be in touch. You can download a PDF copy below for your records.</div>`;
-  $('#applyMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const btn = form.querySelector('button[type=submit]');
+  const msg = $('#applyMsg');
+  const show = html => { msg.innerHTML = html; msg.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+  const limits = { cv: 10, photo: 5 };
+  for (const [name, mb] of Object.entries(limits)) {
+    const file = form.elements[name] && form.elements[name].files[0];
+    if (file && file.size > mb * 1024 * 1024) {
+      show(`<div class="form-error">The file "${escapeHtml(file.name)}" is larger than ${mb} MB. Please attach a smaller file.</div>`);
+      return;
+    }
+  }
+  btn.disabled = true; btn.textContent = 'Submitting…';
+  fetch(store.apply.submitEndpoint, { method: 'POST', body: new FormData(form) })
+    .catch(() => { throw new Error('We could not reach the application server. Check your internet connection.'); })
+    .then(r => r.json().catch(() => ({})).then(j => ({ ok: r.ok, j })))
+    .then(({ ok, j }) => {
+      if (!ok) throw new Error(j.error || 'The server could not accept your application.');
+      form.querySelectorAll('input, textarea, select').forEach(el => { el.disabled = true; });
+      btn.textContent = 'Submitted';
+      show(`<div class="form-success">Thank you, your application has been received (reference ${escapeHtml(j.reference || '')}). Fellows will be notified by March 19, 2027. You can still download a copy of your answers below.</div>`);
+    })
+    .catch(err => {
+      btn.disabled = false; btn.textContent = 'Submit application';
+      show(`<div class="form-error"><strong>Your application was not submitted.</strong> ${escapeHtml(err.message)} Please try again. If it keeps failing, email <a href="mailto:EmoryArt@emory.edu">EmoryArt@emory.edu</a>.</div>`);
+    });
 }
 
 function downloadCopy(fields) {
