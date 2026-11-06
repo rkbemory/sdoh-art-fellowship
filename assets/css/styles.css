@@ -505,3 +505,4 @@ img { max-width: 100%; display: block; }
   .news-card { grid-template-columns: 1fr; }
   .news-card .thumb { min-height: 320px; }
 }
+.flyer-img { display: block; width: 100%; max-width: 560px; margin: 8px auto 14px; border-radius: var(--r); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }

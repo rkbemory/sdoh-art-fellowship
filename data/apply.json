@@ -1,9 +1,10 @@
 {
   "applicationsOpen": true,
   "circular": "assets/docs/sdoh-art-program-circular.pdf",
+  "flyer": "assets/img/art-flyer.jpg",
   "applicationUrl": "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=nPsE4KSwT0K80DImBtXfOBwYut7FpZVPkUTepAQMOyFUM05DVTdUSlVKMDZKOFNSU0lSSkJUUjdRNi4u",
   "headline": "Apply to the SDOH ART Fellowship",
-  "intro": "Applications are submitted through a short online form (Microsoft Forms). It takes about 20 minutes once you have your information ready. Review the items below before you start.",
+  "intro": "Applications are submitted through an online form (Microsoft Forms). Review the items below before you start.",
   "checklist": [
     { "label": "Full name" },
     { "label": "Mailing address", "detail": "Street, city, state, and ZIP code." },
@@ -18,7 +19,7 @@
     { "label": "Submission date" }
   ],
   "referencesNote": "Send all reference letters to EmoryArt@emory.edu. Each letter must include your name at the top.",
-  "eligibility": "Open to early-career and mid-career nurse scientists and interdisciplinary doctoral students, postdoctoral fellows, and faculty whose research engages the social determinants of health. (Final eligibility language to be confirmed.)",
+  "eligibility": "Pre- and postdoctoral fellows and early-career faculty whose research engages non-biological (social, cultural, environmental, and political) influences on health. Letters of support from research mentors and institutional leadership are required.",
   "deadline": "To be announced",
   "submitEmail": "",
   "fields": [

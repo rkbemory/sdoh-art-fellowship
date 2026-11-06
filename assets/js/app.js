@@ -339,6 +339,13 @@ function renderApply() {
     ? `<div class="apply-status open"><strong>Applications are open.</strong>${cfg.deadline ? ` Deadline: ${escapeHtml(cfg.deadline)}.` : ''}</div>`
     : `<div class="apply-status closed"><strong>Applications are not open yet.</strong> The application portal will open when the next cohort is announced. Please review the program circular below in the meantime.</div>`;
 
+  const flyer = cfg.flyer ? `
+    <section class="form-card flyer-card">
+      <h3>Program flyer</h3>
+      <a href="${escapeHtml(cfg.flyer)}" target="_blank" rel="noopener"><img class="flyer-img" src="${escapeHtml(cfg.flyer)}" alt="SDOH ART Fellowship flyer: NIH/NINR Advanced Research Training in non-biological influences on health, with focus areas, eligibility, and contact." loading="lazy" /></a>
+      <div class="form-actions"><a class="btn btn-ghost" href="${escapeHtml(cfg.flyer)}" download>Download flyer</a></div>
+    </section>` : '';
+
   const circular = cfg.circular ? `
     <section class="form-card circular-card">
       <h3>Program circular</h3>
@@ -386,8 +393,9 @@ function renderApply() {
   main().innerHTML = `${pageHead('Apply', cfg.headline, '')}
     <div class="form-wrap">
       ${banner}
-      ${circular}
       ${appBlock}
+      ${flyer}
+      ${circular}
     </div>`;
 
   if (open && !cfg.applicationUrl) {
