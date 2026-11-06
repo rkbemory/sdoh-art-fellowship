@@ -1,14 +1,16 @@
 {
   "applicationsOpen": true,
   "cohortYear": 2027,
-  "circular": "assets/docs/sdoh-art-program-circular.pdf",
   "flyer": "assets/img/art-flyer.jpg",
+  "flyerPdf": "assets/docs/sdoh-art-flyer-2027.pdf",
   "applicationUrl": "",
   "submitEndpoint": "https://apply.sdohartfellowship.org/apply",
   "headline": "Apply to the SDOH ART Fellowship",
   "intro": "Complete the form below and attach your CV. Fields marked * are required. You can download a copy of your answers for your records before or after you submit. Fellows will be notified by March 19, 2027.",
   "eligibility": "Pre- and postdoctoral fellows and early-career faculty whose research engages non-biological (social, cultural, environmental, and political) influences on health. Letters of support from research mentors and institutional leadership are required.",
   "deadline": "January 4, 2027",
+  "notification": "March 19, 2027",
+  "courseDates": "First week of June 2027",
   "referencesNote": "Reference letters are not uploaded here. Ask your referees to send their letters to EmoryArt@emory.edu, with your name at the top of each letter.",
   "fields": [
     {

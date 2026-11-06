@@ -330,89 +330,69 @@ function startBooth(n) {
 }
 
 /* ---------- apply ---------- */
-function renderApply() {
+// Two steps: #/apply shows the flyer and key details; #/apply/form shows the application form.
+function renderApply(step) {
   const cfg = store.apply;
   const open = cfg.applicationsOpen === true;
   const fields = (cfg.fields || []).filter(f => f.enabled !== false);
+  const external = open && cfg.applicationUrl;
+  const formHref = external ? escapeHtml(cfg.applicationUrl) : '#/apply/form';
+  const formAttrs = external ? 'target="_blank" rel="noopener"' : '';
+  const linkEmail = t => escapeHtml(t).replace(/([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/, '<a href="mailto:$1">$1</a>');
+  const refs = cfg.referencesNote ? `<div class="form-note"><p style="margin:0"><strong>Reference letters.</strong> ${linkEmail(cfg.referencesNote)}</p></div>` : '';
+
+  if (step === 'form' && open && !external) {
+    main().innerHTML = `${pageHead('Apply', 'Application form', '')}
+      <div class="form-wrap">
+        <a class="back-link" href="#/apply">← Back to program information</a>
+        <div class="apply-status open"><strong>Applications are open.</strong>${cfg.deadline ? ` Deadline: ${escapeHtml(cfg.deadline)}.` : ''}</div>
+        <p>${escapeHtml(cfg.intro)}</p>
+        ${refs}
+        <div id="applyMsg"></div>
+        <form class="form-card" id="applyForm" name="application" enctype="multipart/form-data" novalidate>
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+          ${fields.map(fieldMarkup).join('')}
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit application</button>
+            <button type="button" class="btn btn-ghost" id="downloadCopy">Download PDF copy</button>
+          </div>
+        </form>
+      </div>`;
+    $('#applyForm').addEventListener('submit', submitApplication);
+    $('#downloadCopy').addEventListener('click', () => downloadCopy(fields));
+    return;
+  }
 
   const banner = open
     ? `<div class="apply-status open"><strong>Applications are open.</strong>${cfg.deadline ? ` Deadline: ${escapeHtml(cfg.deadline)}.` : ''}</div>`
-    : `<div class="apply-status closed"><strong>Applications are not open yet.</strong> The application portal will open when the next cohort is announced. Please review the program circular below in the meantime.</div>`;
+    : `<div class="apply-status closed"><strong>Applications are not open yet.</strong> The application will open when the next cohort is announced.</div>`;
 
   const flyer = cfg.flyer ? `
     <section class="form-card flyer-card">
-      <h3>Program flyer</h3>
       <div class="flyer-frame">
-        <a href="${escapeHtml(cfg.flyer)}" target="_blank" rel="noopener"><img class="flyer-img" src="${escapeHtml(cfg.flyer)}" alt="SDOH ART Fellowship flyer: NIH/NINR Advanced Research Training in non-biological influences on health, with focus areas, eligibility, and contact." loading="lazy" /></a>
-        ${cfg.applicationsOpen ? `<a class="flyer-apply" href="${cfg.applicationUrl ? escapeHtml(cfg.applicationUrl) : '#/apply'}" ${cfg.applicationUrl ? 'target="_blank" rel="noopener"' : ''} aria-label="Apply now"></a>` : ''}
+        <a href="${escapeHtml(cfg.flyer)}" target="_blank" rel="noopener"><img class="flyer-img" src="${escapeHtml(cfg.flyer)}" alt="SDOH ART Fellowship flyer: NIH/NINR Advanced Research Training in non-biological influences on health, with focus areas, benefits, eligibility, dates, and contact." /></a>
+        ${open ? `<a class="flyer-apply" href="${formHref}" ${formAttrs} aria-label="Apply now"></a>` : ''}
       </div>
-      <div class="form-actions"><a class="btn btn-ghost" href="${escapeHtml(cfg.flyer)}" download>Download flyer</a></div>
+      ${cfg.flyerPdf ? `<div class="form-actions"><a class="btn btn-ghost" href="${escapeHtml(cfg.flyerPdf)}" download>Download flyer (PDF)</a></div>` : ''}
     </section>` : '';
 
-  const circular = cfg.circular ? `
-    <section class="form-card circular-card">
-      <h3>Program circular</h3>
-      <p class="muted-note">The official program announcement and details for the SDOH ART Fellowship. If the preview below does not load, use these buttons.</p>
-      <div class="form-actions" style="margin-bottom:14px">
-        <a class="btn btn-primary" href="${escapeHtml(cfg.circular)}" target="_blank" rel="noopener">Open the circular (PDF)</a>
-        <a class="btn btn-ghost" href="${escapeHtml(cfg.circular)}" download>Download PDF</a>
-      </div>
-      <div class="pdf-frame"><iframe src="${escapeHtml(cfg.circular)}#view=FitH" title="SDOH ART Fellowship program circular" loading="lazy"></iframe></div>
-    </section>` : '';
-
-  let appBlock = '';
-  if (!open) {
-    appBlock = `<section class="form-card">
-      <h3>Application</h3>
-      <p>The application portal is currently closed. It will open for submissions once the next cohort is announced. Add yourself to the interest list on the <a href="#/inquiry">Inquiry</a> page to be notified when it opens.</p>
-      <button class="btn btn-gold" disabled aria-disabled="true">Start application — opens soon</button>
+  const dates = [['Apply by', cfg.deadline], ['Notification', cfg.notification], ['5-day course', cfg.courseDates]].filter(d => d[1]);
+  const details = `
+    <section class="form-card apply-details">
+      ${dates.length ? `<dl class="key-dates">${dates.map(([k, v]) => `<div><dt>${k}</dt><dd>${escapeHtml(v)}</dd></div>`).join('')}</dl>` : ''}
+      ${cfg.eligibility ? `<p><strong>Who can apply.</strong> ${escapeHtml(cfg.eligibility)}</p>` : ''}
+      ${open ? `<p><strong>What you will need.</strong> Your CV, a statement of research interests (about 500 words), and details of your education, research experience, and current mentor. Letters of support from your research mentor and institutional leadership are sent separately (see below).</p>
+      ${refs}
+      <a class="btn btn-gold btn-lg" href="${formHref}" ${formAttrs}>Apply now →</a>`
+      : `<p>Add yourself to the interest list on the <a href="#/inquiry">Inquiry</a> page to be notified when it opens.</p>`}
     </section>`;
-  } else if (cfg.applicationUrl) {
-    appBlock = `<section class="form-card">
-      <h3>Application</h3>
-      <div class="form-note"><p style="margin:0"><strong>Eligibility.</strong> ${escapeHtml(cfg.eligibility)}</p></div>
-      <p>${escapeHtml(cfg.intro)}</p>
-      ${(cfg.checklist || []).length ? `<h4 class="apply-list-title">What the application asks for</h4>
-      <ol class="apply-list">${cfg.checklist.map(c => `<li><strong>${escapeHtml(c.label)}</strong>${c.detail ? `<span>${escapeHtml(c.detail)}</span>` : ''}</li>`).join('')}</ol>` : ''}
-      ${cfg.referencesNote ? `<div class="form-note"><p style="margin:0"><strong>Reference letters.</strong> ${escapeHtml(cfg.referencesNote).replace(/([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/, '<a href="mailto:$1">$1</a>')}</p></div>` : ''}
-      <a class="btn btn-gold" href="${escapeHtml(cfg.applicationUrl)}" target="_blank" rel="noopener">Start application ↗</a>
-    </section>`;
-  } else {
-    appBlock = `<div class="form-note">
-        <p style="margin:0 0 6px"><strong>Eligibility.</strong> ${escapeHtml(cfg.eligibility)}</p>
-        <p style="margin:0"><strong>Deadline.</strong> ${escapeHtml(cfg.deadline)}</p>
-      </div>
-      <p>${escapeHtml(cfg.intro)}</p>
-      ${cfg.referencesNote ? `<div class="form-note"><p style="margin:0"><strong>Reference letters.</strong> ${escapeHtml(cfg.referencesNote).replace(/([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/, '<a href="mailto:$1">$1</a>')}</p></div>` : ''}
-      <div id="applyMsg"></div>
-      <form class="form-card" id="applyForm" name="application" enctype="multipart/form-data" novalidate>
-        <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-        ${fields.map(fieldMarkup).join('')}
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Submit application</button>
-          <button type="button" class="btn btn-ghost" id="downloadCopy">Download PDF copy</button>
-        </div>
-      </form>`;
-  }
 
   main().innerHTML = `${pageHead('Apply', cfg.headline, '')}
     <div class="form-wrap">
       ${banner}
-      ${appBlock}
       ${flyer}
-      ${circular}
+      ${details}
     </div>`;
-
-  if (open && !cfg.applicationUrl) {
-    $('#applyForm').addEventListener('submit', submitApplication);
-    const jump = $('.flyer-apply');
-    if (jump) jump.addEventListener('click', e => {
-      e.preventDefault();
-      $('#applyForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => $('#fullName') && $('#fullName').focus({ preventScroll: true }), 600);
-    });
-    $('#downloadCopy').addEventListener('click', () => downloadCopy(fields));
-  }
 }
 
 function fieldMarkup(f) {
@@ -534,7 +514,7 @@ function route() {
       case 'about': renderAbout(); break;
       case 'framework': renderFramework(); break;
       case 'news': renderNews(); break;
-      case 'apply': renderApply(); break;
+      case 'apply': renderApply(parts[1]); break;
       case 'inquiry': renderInquiry(); break;
       case 'faculty': renderFaculty(); break;
       case 'gallery': renderGallery(); break;

@@ -175,15 +175,18 @@ collections:
       - name: apply
         label: "Apply config"
         file: "data/apply.json"
-        description: "Control the application: open/close the portal, the program circular, the application link, and which fields appear."
+        description: "Control the application: open/close the portal, the flyer, key dates, the application link, and which fields appear."
         fields:
           - { name: applicationsOpen, label: "Applications open?", widget: boolean, default: false, hint: "Turn ON when the program is announced to open the application portal." }
-          - { name: circular, label: "Program circular (PDF)", widget: file, required: false, hint: "Shown to everyone on the Apply page." }
+          - { name: flyer, label: "Flyer image", widget: image, required: false, hint: "Shown on the Apply page." }
+          - { name: flyerPdf, label: "Flyer PDF (download)", widget: file, required: false }
           - { name: applicationUrl, label: "External application link (optional)", widget: string, required: false, hint: "If set and applications are open, the Apply button links here. Leave blank to use the built-in form." }
           - { name: headline, label: "Headline", widget: string }
           - { name: intro, label: "Intro", widget: text }
           - { name: eligibility, label: "Eligibility", widget: text }
           - { name: deadline, label: "Deadline", widget: string }
+          - { name: notification, label: "Notification date", widget: string, required: false }
+          - { name: courseDates, label: "5-day course dates", widget: string, required: false }
           - { name: submitEmail, label: "Notify email", widget: string, required: false }
           - name: fields
             label: "Form fields"
