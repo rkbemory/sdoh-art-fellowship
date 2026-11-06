@@ -225,10 +225,7 @@ function renderFellows(cohortStr, selId) {
 
   if (!list.length) {
     main().innerHTML = `${pageHead('Fellows', `${cohort} cohort`, '')}
-      <div class="detail" style="max-width:640px">
-        <h2>Applications open soon</h2>
-        <p>The ${cohort} cohort has not yet been selected. Check the <a href="#/apply">Apply</a> page for upcoming deadlines, or send an <a href="#/inquiry">inquiry</a> to join the interest list.</p>
-      </div>`;
+      ${cohortPlaceholder(cohort)}`;
     return;
   }
 
@@ -327,6 +324,24 @@ function startBooth(n) {
   document.querySelectorAll('.booth-dot').forEach(d => d.onclick = () => { go(Number(d.dataset.i)); resetTimer(); });
   const resetTimer = () => { clearInterval(boothTimer); boothTimer = setInterval(() => go(cur + 1), 4500); };
   resetTimer();
+}
+
+// Shown for a cohort year that has no fellows yet.
+function cohortPlaceholder(cohort) {
+  const cfg = store.apply || {};
+  if (cfg.applicationsOpen && Number(cfg.cohortYear) === cohort) {
+    const dates = [['Apply by', cfg.deadline], ['Notification', cfg.notification], ['5-day course', cfg.courseDates]].filter(d => d[1]);
+    return `<div class="detail" style="max-width:720px">
+        <h2>Applications are open</h2>
+        <p>We are now accepting applications for the ${cohort} cohort.${cfg.notification ? ` Applicants will be notified by ${escapeHtml(cfg.notification)}.` : ''} The new fellows will be introduced here once the cohort is selected.</p>
+        ${dates.length ? `<dl class="key-dates">${dates.map(([k, v]) => `<div><dt>${k}</dt><dd>${escapeHtml(v)}</dd></div>`).join('')}</dl>` : ''}
+        <a class="btn btn-gold btn-lg" href="#/apply">Apply now →</a>
+      </div>`;
+  }
+  return `<div class="detail" style="max-width:640px">
+        <h2>Applications open soon</h2>
+        <p>The ${cohort} cohort has not yet been selected. Check the <a href="#/apply">Apply</a> page for upcoming deadlines, or send an <a href="#/inquiry">inquiry</a> to join the interest list.</p>
+      </div>`;
 }
 
 /* ---------- apply ---------- */

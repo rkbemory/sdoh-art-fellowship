@@ -520,4 +520,4 @@ img { max-width: 100%; display: block; }
 .key-dates dt { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; margin-bottom: 3px; }
 .key-dates dd { margin: 0; font-weight: 700; color: var(--navy-800, #012169); }
 @media (max-width: 560px) { .key-dates { grid-template-columns: 1fr; } }
-.apply-details .btn-lg { font-size: 1.05rem; padding: 14px 28px; margin-top: 6px; }
+.btn-lg { font-size: 1.05rem; padding: 14px 28px; margin-top: 6px; }
