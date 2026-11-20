@@ -1,8 +1,8 @@
 {
   "applicationsOpen": true,
   "cohortYear": 2027,
-  "flyer": "assets/img/art-flyer.jpg",
-  "flyerPdf": "assets/docs/sdoh-art-flyer-2027.pdf",
+  "flyer": "assets/img/art-flyer.jpg?v=2026-11-20",
+  "flyerPdf": "assets/docs/sdoh-art-flyer-2027.pdf?v=2026-11-20",
   "applicationUrl": "",
   "submitEndpoint": "https://apply.sdohartfellowship.org/apply",
   "headline": "Apply to the SDOH ART Fellowship",

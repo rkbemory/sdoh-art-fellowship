@@ -584,7 +584,9 @@ async function boot() {
   try {
     const [fellows, faculty, news, gallery, pages, apply] = await Promise.all(
       ['fellows', 'faculty', 'news', 'gallery', 'pages', 'apply'].map(n =>
-        fetch(`data/${n}.json`).then(r => r.json()))
+        // no-cache = always revalidate with the server (a cheap 304 when unchanged),
+        // so content edits show up at once instead of after the 10-min browser cache.
+        fetch(`data/${n}.json`, { cache: 'no-cache' }).then(r => r.json()))
     );
     store.fellows = fellows; store.faculty = faculty; store.news = news;
     store.gallery = gallery; store.pages = pages; store.apply = apply;
