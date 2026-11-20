@@ -3,8 +3,8 @@
    Counting and showing are two separate things here:
 
      COUNT  on every page load, always, silently.
-     SHOW   a small toast in the bottom-right, once per browser session.
-            It slides in, holds for a few seconds, then slides up and is
+     SHOW   a small toast in the bottom-right on every page load.
+            It slides in, holds for 10 seconds, then slides up and is
             removed from the page entirely.
 
    Counts are kept by a small Cloudflare Worker (see counter/README.md);
@@ -27,10 +27,9 @@
   var SHOW_PUBLICLY = true;
 
   var DAY_KEY = 'sdoh:lastVisitDay';   // localStorage: one visit per UTC day
-  var SEEN_KEY = 'sdoh:statsSeen';     // sessionStorage: one toast per session
 
   var ENTER_DELAY = 1100;              // let the page settle first
-  var HOLD_MS = 5000;                  // long enough to read three numbers
+  var HOLD_MS = 10000;                 // visible for 10 s, then it leaves
   var EXIT_MS = 520;                   // must match the CSS transition
 
   /* ----- helpers ------------------------------------------------------- */
@@ -50,20 +49,6 @@
         return d && typeof d.total === 'number' && !d.degraded ? d : null;
       })
       .catch(function () { return null; });
-  }
-
-  /* Storage can throw in private mode, so every access is guarded. When it
-     throws we err towards showing the toast rather than suppressing it. */
-  function seenThisSession() {
-    try {
-      return sessionStorage.getItem(SEEN_KEY) === '1';
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function markSeen() {
-    try { sessionStorage.setItem(SEEN_KEY, '1'); } catch (e) {}
   }
 
   function wanted() {
@@ -158,11 +143,10 @@
       });
     }
 
-    if (!wanted() || seenThisSession()) return;
+    if (!wanted()) return;
 
     first.then(function (d) {
       if (!d) return; // Worker unreachable: leave the page as it was
-      markSeen();
       setTimeout(function () { show(d); }, ENTER_DELAY);
     });
   }

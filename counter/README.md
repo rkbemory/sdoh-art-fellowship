@@ -4,11 +4,10 @@ The website is static on GitHub Pages, which cannot run server code, so the
 visit counts live in a small Cloudflare Worker instead.
 
 Counting and showing are separate. Every page load is **counted**, silently.
-The numbers are **shown** once per browser session, as a small toast that
-slides into the bottom-right about a second after the page settles, holds for
-five seconds, then slides up and is removed from the page. Hovering it pauses
-the timer. A second page load in the same session still counts but shows
-nothing.
+The numbers are **shown** on every page load, including a refresh, as a
+small toast that slides into the bottom-right about a second after the page
+settles, holds for 10 seconds, then slides up and is removed from the page.
+Hovering it pauses the timer.
 
 ```
 browser  ──►  count.sdohartfellowship.org   (Worker: worker.js)
@@ -57,14 +56,13 @@ push the site and the toast appears on its own.
 
 ## Timings
 
-All four knobs are at the top of `../assets/js/counter.js`:
+All three knobs are at the top of `../assets/js/counter.js`:
 
 | Constant      | Default | What it does                          |
 |---------------|---------|---------------------------------------|
 | `ENTER_DELAY` | 1100 ms | wait after load before sliding in     |
-| `HOLD_MS`     | 5000 ms | how long it stays put                 |
+| `HOLD_MS`     | 10000 ms | how long it stays put                |
 | `EXIT_MS`     | 520 ms  | slide-up duration, matches the CSS    |
-| `SEEN_KEY`    | —       | sessionStorage key for once-per-visit |
 
 Change `EXIT_MS` and the `.vcount.is-out` transition duration in
 `../assets/css/styles.css` together, or the element is removed mid-animation.
