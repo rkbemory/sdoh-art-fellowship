@@ -521,3 +521,60 @@ img { max-width: 100%; display: block; }
 .key-dates dd { margin: 0; font-weight: 700; color: var(--navy-800, #012169); }
 @media (max-width: 560px) { .key-dates { grid-template-columns: 1fr; } }
 .btn-lg { font-size: 1.05rem; padding: 14px 28px; margin-top: 6px; }
+
+/* ---------- Visitor counter ----------
+   A small toast in the bottom-right, shown once per browser session: it
+   slides in, holds a few seconds, then slides up and is removed from the DOM.
+   Informational only, so it stays muted — grey labels, navy numbers, no
+   gradient. z-index 30 keeps it above the content and the sticky topbar (20)
+   but below the mobile drawer (60) and its scrim (50). */
+.vcount {
+  position: fixed; right: 14px; bottom: 14px; z-index: 30;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 11px;
+  background: rgba(255, 255, 255, .94);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--ui);
+  cursor: default; -webkit-tap-highlight-color: transparent;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .42s ease, transform .42s ease;
+}
+.vcount.is-in { opacity: .88; transform: translateY(0); }
+.vcount.is-in:not(.is-out):hover { opacity: 1; }
+/* Leaves upward, which reads as "finished" rather than "dismissed". */
+.vcount.is-out { opacity: 0; transform: translateY(-14px); transition-duration: .52s; }
+
+.vcount .vc-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green); opacity: .85; flex: 0 0 auto;
+}
+.vcount .vc-eye { width: 12px; height: 12px; color: var(--muted); flex: 0 0 auto; }
+
+.vcount .vc-item { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px; line-height: 1.05; }
+.vcount .vc-k {
+  font-size: .52rem; font-weight: 600; letter-spacing: .7px;
+  text-transform: uppercase; color: var(--muted); white-space: nowrap;
+}
+.vcount .vc-v {
+  font-size: .8rem; font-weight: 600; color: var(--navy-800);
+  font-variant-numeric: tabular-nums; min-width: 1.2ch;
+}
+.vcount .vc-sep { width: 1px; height: 16px; background: var(--line); flex: 0 0 auto; }
+
+@media (max-width: 560px) {
+  .vcount { right: 10px; bottom: 10px; gap: 6px; padding: 4px 9px; }
+  .vcount .vc-eye { display: none; }
+  .vcount .vc-k { font-size: .47rem; letter-spacing: .5px; }
+  .vcount .vc-v { font-size: .74rem; }
+  .vcount .vc-sep { height: 14px; }
+}
+
+/* Slide is decoration; the fade still carries the appear/disappear. */
+@media (prefers-reduced-motion: reduce) {
+  .vcount, .vcount.is-in, .vcount.is-out { transform: none; }
+}
+
+@media print { .vcount { display: none !important; } }

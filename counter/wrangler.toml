@@ -1,0 +1,17 @@
+name = "sdoh-counter"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+
+# Serve the counter from our own domain so the site and the API share a name.
+# Requires sdohartfellowship.org to be on this Cloudflare account (it is —
+# the domain was registered through Cloudflare Registrar).
+routes = [
+  { pattern = "count.sdohartfellowship.org", custom_domain = true }
+]
+
+# Created once with:
+#   npx wrangler kv namespace create SDOH_KV
+# Paste the id it prints below, then deploy.
+[[kv_namespaces]]
+binding = "SDOH_KV"
+id = "765397d5838d4ed8a6219424b22cbd96"
